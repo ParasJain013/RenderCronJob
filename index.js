@@ -20,8 +20,10 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 // const uid = generateUniqueId();
 let currentCount=0;
-
-app.use("/imageGenerate",async (req,res) => {
+app.get('/',async (req, res) => {
+    res.send(200).json({success: true,message:"REACHED"});
+});
+app.get("/imageGenerate",async (req,res) => {
 
         console.log(currentCount++);
         res.send(200).json({success: true,message:currentCount});
