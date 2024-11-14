@@ -33,4 +33,15 @@ app.get("/imageGenerate",async (req,res) => {
 
 app.listen(PORT,()=>{
     console.log(`SERVER LISTENING ON PORT ${PORT}`)
+
+    setInterval(async () => {
+        try {
+            const response = await fetch(`http://localhost:${PORT}/imageGenerate`);
+            console.log(response);
+            // const response = await axios.get(`http://localhost:${PORT}/imageGenerate`);
+            // console.log("Response from /imageGenerate:", response.data);
+        } catch (error) {
+            console.error("Error hitting /imageGenerate:");
+        }
+    }, 1000); // 1000 ms = 1 second
 })
